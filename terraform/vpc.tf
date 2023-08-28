@@ -1,12 +1,12 @@
 data "aws_availability_zones" "azs" {}
 module "myapp-vpc" {
-    source                              = "github.com/terraform-community-modules/tf_aws_vpc"
-    # version                             = "2.0.0"
+    source  = "terraform-aws-modules/vpc/aws"
+    version = "5.0.0"
   name            = "myapp-vpc"
   cidr            = var.vpc_cidr_block
   private_subnets = var.private_subnet_cidr_blocks
   public_subnets  = var.public_subnet_cidr_blocks
-  azs             = data.aws_availability_zones.azs.names
+  azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
   enable_nat_gateway   = true
   single_nat_gateway   = true
