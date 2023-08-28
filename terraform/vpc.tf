@@ -1,7 +1,7 @@
 data "aws_availability_zones" "azs" {}
 module "myapp-vpc" {
-    source                              = "clouddrove/vpc/aws"
-    version                             = "2.0.0"
+    source                              = "github.com/terraform-community-modules/tf_aws_vpc"
+    # version                             = "2.0.0"
   name            = "myapp-vpc"
   cidr            = var.vpc_cidr_block
   private_subnets = var.private_subnet_cidr_blocks
